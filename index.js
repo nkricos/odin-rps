@@ -33,7 +33,14 @@ function parsePlayer(playerWord) {
     return playerSelection
 }
 
+function playGame(rounds) {
+    for (i = 0; i < rounds; i++){
+        playerSelection = parsePlayer(prompt("Rock, Paper, or Scissors?"));
+        computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
 let playerSelection, computerSelection;
-playerSelection = parsePlayer("Paper");
-computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+playGame(5);
+
