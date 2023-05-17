@@ -1,18 +1,39 @@
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
-    let computerChoice;
+    let computerSelection;
     switch(randomNumber) {
         case 0: 
-            computerChoice = "Rock";
+            computerSelection = "Rock";
             break;
         case 1:
-            computerChoice = "Paper";
+            computerSelection = "Paper";
             break;
         case 2:
-            computerChoice = "Scissors";
+            computerSelection = "Scissors";
             break;
     }
-    return computerChoice;
+    return computerSelection;
 }
 
-console.log(getComputerChoice());
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        console.log(`Stalemate!  ${playerSelection} ties ${computerSelection}`);
+    } else if ((playerSelection == "Rock" && computerSelection == "Scissors") ||
+        (playerSelection == "Scissors" && computerSelection == "Paper") ||
+        (playerSelection == "Paper" && computerSelection == "Rock")) {
+        console.log(`You Win!  ${playerSelection} beats ${computerSelection}`);
+    } else {
+        console.log(`You lose!  ${computerSelection} beats ${playerSelection}`);
+    }
+}
+
+function parsePlayer(playerWord) {
+    playerSelection = playerWord.charAt(0).toUpperCase()
+    + playerWord.slice(1).toLowerCase();
+    return playerSelection
+}
+
+let playerSelection, computerSelection;
+playerSelection = parsePlayer("Paper");
+computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
