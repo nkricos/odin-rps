@@ -17,6 +17,7 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
+        results.textContent = `Stalemate!  ${playerSelection} ties ${computerSelection}`;
         console.log(`Stalemate!  ${playerSelection} ties ${computerSelection}`);
     } else if ((playerSelection == "Rock" && computerSelection == "Scissors") ||
         (playerSelection == "Scissors" && computerSelection == "Paper") ||
@@ -42,5 +43,14 @@ function playGame(rounds) {
 }
 
 let playerSelection, computerSelection;
-playGame(5);
+//playGame(5);
 
+const results = document.querySelector('#results');
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(button.id);
+        playRound(button.id, getComputerChoice());
+    });
+});
+console.log(buttons);
