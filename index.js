@@ -22,8 +22,10 @@ function playRound(playerSelection, computerSelection) {
     } else if ((playerSelection == "Rock" && computerSelection == "Scissors") ||
         (playerSelection == "Scissors" && computerSelection == "Paper") ||
         (playerSelection == "Paper" && computerSelection == "Rock")) {
-        console.log(`You Win!  ${playerSelection} beats ${computerSelection}`);
+            results.textContent = `You Win!  ${playerSelection} beats ${computerSelection}`;
+            console.log(`You Win!  ${playerSelection} beats ${computerSelection}`);
     } else {
+        results.textContent = `You lose!  ${computerSelection} beats ${playerSelection}`;
         console.log(`You lose!  ${computerSelection} beats ${playerSelection}`);
     }
 }
@@ -54,3 +56,4 @@ buttons.forEach((button) => {
     });
 });
 console.log(buttons);
+console.log(results);
