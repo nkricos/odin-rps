@@ -1,17 +1,14 @@
 function addScore() {
     currentScore += 1;
     score.textContent = `${currentScore}`;
+    
 }
 
-function checkWinner() {
-    if (currentScore == 5) {
-        
-        return alert("Winner!");
-    }
-}
+
 
 function resetGame() {
     currentScore = 0;
+    results.textContent = "Game reset";
     return score.textContent = 0;
 }
 
@@ -46,7 +43,7 @@ function playRound(playerSelection, computerSelection) {
         results.textContent = `You lose!  ${computerSelection} beats ${playerSelection}`;
         console.log(`You lose!  ${computerSelection} beats ${playerSelection}`);
     }
-    checkWinner();
+    
 }
 /*
 function parsePlayer(playerWord) {
@@ -75,10 +72,11 @@ score.textContent = currentScore;
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if (currentScore == 5){
+            alert('Winner!');
             resetGame();
-        }
-        console.log(button.id);
-        playRound(button.id, getComputerChoice());
+        }else {console.log(button.id);
+            playRound(button.id, getComputerChoice());}
+        
     });
 });
 console.log(score);
